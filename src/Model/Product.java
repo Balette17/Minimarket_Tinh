@@ -11,13 +11,13 @@ public class Product implements Serializable {
     private String Type;
 
 
-    public Product(String ID, String name, String unitPrice, boolean size, int amount, String type) {
+    public Product(String ID, String name, String type, int amount,String unitPrice, boolean size ) {
         this.ID = ID;
         this.name = name;
+        Type = type;
+        this.amount = amount;
         this.unitPrice = unitPrice;
         this.size = size;
-        this.amount = amount;
-        Type = type;
     }
 
 
@@ -37,21 +37,14 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public String getUnitPrice() {
-        return unitPrice;
+    public String getType() {
+        return Type;
     }
 
-    public void setUnitPrice(String unitPrice) {
-        this.unitPrice = unitPrice;
+    public void setType(String type) {
+        Type = type;
     }
 
-    public boolean getSize() {
-        return size;
-    }
-
-    public void setSize(boolean size) {
-        this.size = size;
-    }
 
     public int getAmount() {
         return amount;
@@ -60,12 +53,20 @@ public class Product implements Serializable {
     public void setAmount(int amount) {
         this.amount = amount;
     }
-
-    public String getType() {
-        return Type;
+    public String getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setType(String type) {
-        Type = type;
+    public void setUnitPrice(String unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+
+    public boolean getSize() {
+        return size;
+    }
+
+    public void setSize(boolean size) {
+        this.size = size;
     }
 }
