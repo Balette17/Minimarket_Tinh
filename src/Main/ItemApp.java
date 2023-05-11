@@ -28,18 +28,24 @@ public class ItemApp extends JFrame {
     private JButton exitButton;
     private JButton refreshButton;
     private JButton sortButton;
+
     DefaultTableModel tbModel;
     DefaultComboBoxModel cbModel = new DefaultComboBoxModel();
     ArrayList<Product> itemList;
     String filePath = "Item.dat";
     int currentRow = -1;
+    JFrame frontScreen;
 
-    public ItemApp(String title) {
+
+
+    public ItemApp(String title, Login aThis) {
         //1. Initialize Setup
+
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
+        frontScreen= aThis;
         initTable();
         loadCb();
         tbCan.setDefaultEditor(Object.class, null);
@@ -281,13 +287,11 @@ public class ItemApp extends JFrame {
     }
 
 
-    public static void main(String[] args) {
-        ItemApp c = new ItemApp("Mini market Management");
-        c.setVisible(true);
-        c.setLocationRelativeTo(null);
-
-
-    }
+//    public static void main(String[] args) {
+//        ItemApp c = new ItemApp("Mini market Management");
+//        c.setVisible(true);
+//        c.setLocationRelativeTo(null);
+//    }
 
 
 }
