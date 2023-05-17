@@ -36,8 +36,6 @@ public class ItemApp extends JFrame {
     int currentRow = -1;
     JFrame frontScreen;
 
-
-
     public ItemApp(String title, Login aThis) {
         //1. Initialize Setup
 
@@ -45,12 +43,12 @@ public class ItemApp extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
-        frontScreen= aThis;
+        frontScreen= aThis; //chua biet
         initTable();
         loadCb();
         tbCan.setDefaultEditor(Object.class, null);
         itemList = new ArrayList<>();
-        boolean file = loadFile();
+        boolean file = loadFile();// load data file in your project
         if (file) {
             fillToTable();
         } else {
@@ -117,7 +115,7 @@ public class ItemApp extends JFrame {
             public int compare(Product o1, Product o2) {
                     return o1.getName().compareTo(o2.getName());
             }
-        });
+        }); // compare String
     }
 
 
@@ -138,8 +136,8 @@ public class ItemApp extends JFrame {
     }
 
     private void deleteItem() {
-        int re = JOptionPane.showConfirmDialog(this, "" + "do you want to delete this one?", "Delete Warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-        if (re == JOptionPane.YES_OPTION) {
+        int del = JOptionPane.showConfirmDialog(this, "" + "do you want to delete this one?", "Delete Warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (del == JOptionPane.YES_OPTION) {
             itemList.remove(currentRow);
             resetForm();
         }
@@ -226,11 +224,9 @@ public class ItemApp extends JFrame {
        try {
             String id = txtId.getText();
             String name = txtName.getText();
-
             Integer amount = Integer.parseInt(txtAm.getText());
             String unitPrice = txtUp.getText();
             Boolean size = rdSmall.isSelected();
-
 
             if (id.isEmpty() || name.isEmpty()  || unitPrice.isEmpty()) {
                showMess("Please fill in all information requirements");
@@ -240,7 +236,6 @@ public class ItemApp extends JFrame {
                showMess("Please choose size.");
                return;
             }
-
             String type = "";
             if(cbType.getSelectedIndex()== 0){
                showMess("Please choose kind of item");
